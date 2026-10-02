@@ -1,1 +1,4 @@
-user-agent: *Allow: /Sitemap: https://TUUSUARIO.github.io/sitemap.xml
+user-agent: *
+Allow: /
+
+Sitemap: https://aulabbacademia-blip.github.io/aulabbacademia.github.io/sitemap.xml
