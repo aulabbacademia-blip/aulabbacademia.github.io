@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aula BB · Academia online de Contabilidad, Fiscalidad, Micro y Macroeconomía</title>
+<meta name="description" content="Academia online especializada en Contabilidad, Fiscalidad, Microeconomía y Macroeconomía para universitarios. Clases individuales adaptadas a tu examen.">
+<meta property="og:title" content="Aula BB · Academia online para universitarios">
+<meta property="og:description" content="Clases individuales de Contabilidad, Fiscalidad, Microeconomía y Macroeconomía.">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --board:#1d2b4f; --board-2:#16223f; --chalk:#f3f1ea; --mint:#9fe0d0;
+  --bg:#f4f6fb; --ink:#16223f; --muted:#52607f; --card:#ffffff; --line:#d9dfec; --accent:#1d2b4f; --on-accent:#f3f1ea;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0e1630;--ink:#eef0f6;--muted:#a4afca;--card:#16223f;--line:#2b3a63;--accent:#9fe0d0;--on-accent:#0e1630}
+}
+:root[data-theme="dark"]{--bg:#0e1630;--ink:#eef0f6;--muted:#a4afca;--card:#16223f;--line:#2b3a63;--accent:#9fe0d0;--on-accent:#0e1630}
+html{scroll-padding-top:4.5rem;scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.6;font-size:1.05rem;padding-bottom:4.5rem}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.25rem}
+
+header.top{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 1.25rem;max-width:1040px;margin:0 auto}
+.logo{display:flex;align-items:baseline;gap:.5rem;text-decoration:none}
+.logo b{font-weight:800;font-size:1.35rem;letter-spacing:-.02em}
+.logo span{font-size:.9rem;color:var(--muted)}
+nav.menu{display:flex;align-items:center;gap:1.4rem;font-size:.97rem}
+nav.menu a{text-decoration:none;color:var(--muted)}
+nav.menu a:hover{color:var(--ink)}
+nav.menu a.book{background:var(--accent);color:var(--on-accent);padding:.55rem 1.1rem;border-radius:999px;font-weight:600}
+
+.board{background:var(--board);color:var(--chalk);border-radius:22px;margin:.5rem 1.25rem 0;padding:clamp(1.5rem,5vw,3.5rem);box-shadow:inset 0 0 0 8px var(--board-2)}
+.board-in{max-width:1040px;margin:0 auto;display:grid;gap:2.2rem;grid-template-columns:1.1fr .9fr;align-items:center}
+.board h1{font-size:clamp(1.9rem,5vw,3.1rem);line-height:1.1;letter-spacing:-.03em;margin:0 0 1rem;font-weight:800}
+.board .sub{margin:0 0 1.3rem;color:#d9dcea;max-width:33rem}
+.points{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem 1.3rem;color:var(--mint);font-size:.98rem}
+.points li::before{content:"✓ ";font-weight:800}
+.pick{background:var(--board-2);border:1px solid #31426f;border-radius:18px;padding:1.4rem}
+.pick h2{font-size:1.15rem;margin:0 0 .9rem;color:var(--chalk)}
+.pick fieldset{border:0;margin:0 0 1rem;padding:0}
+.pick legend{font-size:.95rem;color:#c4cae0;margin-bottom:.5rem;padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{font:inherit;font-size:.98rem;color:var(--chalk);background:transparent;border:1.5px solid #52639a;border-radius:999px;padding:.5rem 1rem;cursor:pointer;min-height:44px}
+.chip[aria-pressed="true"]{background:var(--mint);border-color:var(--mint);color:#0e1630;font-weight:600}
+.preview{background:#0e1630;border-radius:12px;padding:.8rem 1rem;font-size:.95rem;color:#dfe3f2;margin:0 0 1rem}
+.btn{display:inline-block;font:inherit;font-weight:600;background:var(--mint);color:#0e1630;padding:.9rem 1.5rem;border:0;border-radius:999px;text-decoration:none;cursor:pointer;min-height:48px;text-align:center}
+.btn:hover{background:#b7ecdf}
+.btn.full{display:block;width:100%}
+.btn.ghost{background:transparent;border:1.5px solid var(--mint);color:var(--mint)}
+.btn.ghost:hover{background:#1d2b4f}
+.alt{display:block;width:100%;margin-top:.6rem}
+.note{font-size:.88rem;color:#b9c0d9;margin:.7rem 0 0}
+
+section{padding:3.2rem 0}
+h2.t{font-size:clamp(1.5rem,3.8vw,2.1rem);letter-spacing:-.02em;line-height:1.15;margin:0 0 .6rem}
+.lead{color:var(--muted);max-width:38rem;margin:0 0 1.8rem}
+.grid{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.4rem}
+.card h3{margin:0 0 .4rem;font-size:1.15rem}
+.card p{margin:0;color:var(--muted);font-size:1rem}
+.quote{margin:0}
+.quote p{margin:0 0 .8rem;color:var(--ink)}
+.quote cite{font-style:normal;font-size:.92rem;color:var(--muted)}
+.more{margin:1.2rem 0 0}
+.more a{margin-right:1.2rem}
+
+.pains{list-style:none;margin:0;padding:0;display:grid;gap:.8rem;max-width:42rem}
+.pains li{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:1rem 1.2rem}
+
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));counter-reset:s}
+.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.4rem}
+.steps li::before{content:counter(s);display:inline-grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:var(--accent);color:var(--on-accent);font-weight:800;margin-bottom:.6rem}
+.steps b{display:block;margin-bottom:.3rem}
+.steps span{color:var(--muted);font-size:1rem}
+
+.lesson{display:grid;gap:2rem;grid-template-columns:1fr 1fr;align-items:center}
+.lesson svg{display:block;width:100%;height:auto;border-radius:18px;border:1px solid var(--line);background:var(--card)}
+.lesson ul{margin:1rem 0 0;padding-left:1.1rem;color:var(--muted)}
+.lesson li{margin:.35rem 0}
+.about{display:grid;gap:2rem;grid-template-columns:1fr 1fr;align-items:start}
+.about p{margin:0 0 1rem;max-width:34rem}
+.facts{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.facts li{padding:.9rem 0;border-bottom:1px solid var(--line)}
+.facts b{display:block}
+.facts span{color:var(--muted);font-size:.98rem}
+
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem 1.2rem;margin-bottom:.7rem;max-width:44rem}
+summary{font-weight:600;cursor:pointer}
+details p{margin:.6rem 0 0;color:var(--muted)}
+
+.cta{background:var(--accent);color:var(--on-accent);border-radius:22px;margin:0 1.25rem 2rem;padding:clamp(2rem,5vw,3.2rem);text-align:center}
+.cta h2{margin:0 0 .8rem;font-size:clamp(1.5rem,4vw,2.1rem);line-height:1.15}
+.cta p{margin:0 auto 1.4rem;max-width:30rem;opacity:.92}
+.cta .btn{background:var(--on-accent);color:var(--accent)}
+#aviso-legal,#privacidad,#cookies{padding:1.6rem 0 0}
+.legal{font-size:.95rem;color:var(--muted);line-height:1.55}
+dialog.legal{width:min(760px,calc(100% - 2rem));max-height:85vh;overflow:auto;padding:0 1.5rem 1.5rem;background:var(--card);color:var(--muted);border:1px solid var(--line);border-radius:16px}
+dialog.legal::backdrop{background:rgba(8,14,32,.6)}
+.legal .close{position:sticky;top:0;display:block;margin:0 0 0 auto;padding:.8rem 0;background:var(--card);border:0;font:inherit;font-weight:600;color:var(--ink);cursor:pointer}
+.legal h2{font-size:1.15rem;color:var(--ink);margin:2rem 0 .6rem}
+.legal h3{font-size:1rem;color:var(--ink);margin:1.1rem 0 .3rem}
+.legal p,.legal li{margin:.3rem 0}
+.fill{background:#fff3a3;color:#000;padding:0 .25em;border-radius:3px}
+footer{max-width:1040px;margin:0 auto;padding:1.5rem 1.25rem 2rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem;color:var(--muted);font-size:.92rem}
+footer a{margin-left:1.1rem}
+
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:.7rem 1.25rem calc(.7rem + env(safe-area-inset-bottom,0px));background:var(--board);display:none;z-index:5}
+.sticky .btn{display:block}
+
+@media (max-width:760px){
+  .board-in,.about,.lesson{grid-template-columns:1fr}
+  nav.menu a:not(.book){display:none}
+  .logo span{display:none}
+  .sticky{display:block}
+  footer a{margin:0 1.1rem 0 0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="logo" href="#"><b>Aula BB</b><span>Academia online</span></a>
+  <nav class="menu" aria-label="Principal">
+    <a href="#asignaturas">Asignaturas</a>
+    <a href="#metodo">Método</a>
+    <a href="#faq">Preguntas</a>
+    <a class="book" href="#reserva">Reservar clase</a>
+  </nav>
+</header>
+
+<div class="board">
+  <div class="board-in">
+    <div>
+      <h1>Tu academia online especializada en Contabilidad, Fiscalidad, Micro y Macroeconomía.</h1>
+      <p class="sub">Clases individuales para universitarios, con práctica de problemas tipo examen para que llegues a la prueba con seguridad.</p>
+      <ul class="points">
+        <li>Clases individuales</li>
+        <li>100% online</li>
+        <li>Adaptadas a tu examen</li>
+      </ul>
+    </div>
+
+    <div class="pick" id="reserva">
+      <h2>Reserva tu primera clase online</h2>
+      <fieldset>
+        <legend>¿Qué asignatura necesitas?</legend>
+        <div class="chips" id="subjects">
+          <button type="button" class="chip" aria-pressed="false">Contabilidad</button>
+          <button type="button" class="chip" aria-pressed="false">Fiscalidad</button>
+          <button type="button" class="chip" aria-pressed="false">Microeconomía</button>
+          <button type="button" class="chip" aria-pressed="false">Macroeconomía</button>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>¿Cuándo es tu examen?</legend>
+        <div class="chips" id="when">
+          <button type="button" class="chip" aria-pressed="false" data-v="esta semana o la próxima">Muy pronto</button>
+          <button type="button" class="chip" aria-pressed="false" data-v="en las próximas semanas">Este mes</button>
+          <button type="button" class="chip" aria-pressed="false" data-v="más adelante">Más adelante</button>
+        </div>
+      </fieldset>
+      <p class="preview" id="preview" aria-live="polite"></p>
+      <a class="btn full" id="send" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+      <a class="btn ghost alt" id="mail" href="#">Enviar por email</a>
+      <p class="note">Sin compromiso: recibirás una propuesta de horario.</p>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section id="asignaturas">
+    <div class="wrap">
+      <h2 class="t">Asignaturas</h2>
+      <p class="lead">Preparación especializada en las materias de Economía y Empresa que más se atragantan.</p>
+      <div class="grid">
+        <div class="card"><h3>Contabilidad</h3><p>Partida doble, asientos, balance y cuenta de resultados, hasta que las cuentas cuadren.</p></div>
+        <div class="card"><h3>Fiscalidad</h3><p>Impuestos explicados con casos prácticos, para saber qué aplicar en cada problema.</p></div>
+        <div class="card"><h3>Microeconomía</h3><p>Consumidor, empresa y mercados: modelos, gráficos y problemas tipo examen.</p></div>
+        <div class="card"><h3>Macroeconomía</h3><p>Producción, empleo, inflación y política económica, con los modelos bien conectados.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <h2 class="t">Dificultades habituales</h2>
+      <ul class="pains">
+        <li>Se entiende la teoría en clase, pero ante el problema del examen no se sabe por dónde empezar.</li>
+        <li>Muchas horas de estudio releyendo apuntes sin que los ejercicios salgan.</li>
+        <li>Las cuentas no cuadran y no se localiza el error.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="metodo" style="padding-top:0">
+    <div class="wrap">
+      <h2 class="t">Método de trabajo</h2>
+      <p class="lead">Menos releer y más practicar: resolver problemas es lo que más se fija en la memoria.</p>
+      <ol class="steps">
+        <li><b>Asignatura y fecha de examen</b><span>Indicas tu asignatura y cuándo es la prueba, y recibes una propuesta de horario.</span></li>
+        <li><b>Diagnóstico con tu material</b><span>Se parte de tus apuntes y exámenes anteriores para detectar qué se atasca y explicarlo paso a paso.</span></li>
+        <li><b>Práctica guiada</b><span>Primero se resuelven los problemas contigo y después los resuelves tú, como en el examen.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap lesson">
+      <div>
+        <h2 class="t">Así es una clase online</h2>
+        <p class="lead" style="margin-bottom:0">Una videollamada individual, con pizarra digital en directo y los problemas resueltos paso a paso.</p>
+        <ul>
+          <li>Pizarra digital para dibujar esquemas, gráficos y asientos contables.</li>
+          <li>Ejercicios tipo examen resueltos contigo.</li>
+          <li>Solo necesitas un dispositivo con conexión a internet.</li>
+        </ul>
+      </div>
+      <svg viewBox="0 0 560 360" role="img" aria-labelledby="lt">
+        <title id="lt">Escritorio con portátil en una videollamada entre profesora y alumno, tablet, café y planta</title>
+        <rect width="560" height="360" fill="#e3e9f6"/>
+        <rect y="268" width="560" height="92" fill="#c9a37a"/>
+        <rect y="268" width="560" height="6" fill="#b58d66"/>
+        <!-- planta -->
+        <path d="M498 270h40l-6 -34h-28z" fill="#f3f1ea"/>
+        <ellipse cx="508" cy="214" rx="9" ry="24" fill="#4fae98" transform="rotate(-18 508 214)"/>
+        <ellipse cx="528" cy="210" rx="9" ry="26" fill="#6cc5b0" transform="rotate(16 528 210)"/>
+        <ellipse cx="518" cy="204" rx="8" ry="26" fill="#4fae98"/>
+        <!-- portátil -->
+        <rect x="120" y="58" width="320" height="204" rx="12" fill="#16223f"/>
+        <rect x="132" y="70" width="296" height="180" rx="6" fill="#1d2b4f"/>
+        <rect x="142" y="80" width="140" height="134" rx="8" fill="#2b3a63" stroke="#9fe0d0" stroke-width="2"/>
+        <path d="M150 210c0-14 6-30 20-34l20-4 20 4c14 4 20 20 20 34z" fill="#9fe0d0"/>
+        <ellipse cx="210" cy="132" rx="30" ry="34" fill="#3b2a23"/>
+        <circle cx="210" cy="138" r="22" fill="#f1c9a5"/>
+        <path d="M188 128c8-14 36-14 44 0-10-6-34-6-44 0z" fill="#3b2a23"/>
+        <rect x="292" y="80" width="126" height="134" rx="8" fill="#2b3a63"/>
+        <path d="M304 210c0-14 6-28 20-32l19-4 19 4c14 4 20 18 20 32z" fill="#f3f1ea" opacity=".9"/>
+        <circle cx="343" cy="140" r="22" fill="#d9a47c"/>
+        <path d="M321 136c2-18 40-18 44 0-8-8-34-8-44 0z" fill="#2a1d18"/>
+        <rect x="142" y="222" width="276" height="20" rx="10" fill="#0e1630"/>
+        <circle cx="250" cy="232" r="6" fill="#9fe0d0"/><circle cx="280" cy="232" r="6" fill="#9fe0d0"/><circle cx="310" cy="232" r="6" fill="#e5707e"/>
+        <path d="M88 262h384l-26 22a14 14 0 0 1-10 4H124a14 14 0 0 1-10-4z" fill="#aab4cf"/>
+        <rect x="240" y="262" width="80" height="6" rx="3" fill="#8f9bbd"/>
+        <!-- tablet con pizarra -->
+        <rect x="24" y="296" width="104" height="58" rx="7" fill="#16223f" transform="rotate(-4 76 325)"/>
+        <g transform="rotate(-4 76 325)" stroke="#9fe0d0" stroke-width="2" fill="none" stroke-linecap="round">
+          <path d="M36 312h50M36 324h72M36 336h40"/>
+          <path d="M100 312l8 8" stroke="#f3f1ea"/>
+        </g>
+        <path d="M136 342l56-22" stroke="#16223f" stroke-width="5" stroke-linecap="round"/>
+        <!-- libreta y café -->
+        <rect x="360" y="300" width="84" height="50" rx="4" fill="#f3f1ea"/>
+        <path d="M372 314h56M372 326h56M372 338h38" stroke="#aab4cf" stroke-width="2"/>
+        <rect x="470" y="296" width="34" height="38" rx="7" fill="#f3f1ea"/>
+        <path d="M504 306a10 10 0 0 1 0 20" stroke="#f3f1ea" stroke-width="5" fill="none"/>
+        <path d="M480 288c-4-8 4-10 0-18M492 288c-4-8 4-10 0-18" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".7"/>
+      </svg>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap about">
+      <div>
+        <h2 class="t">Sobre Aula BB</h2>
+        <p>Aula BB es una academia online centrada en las asignaturas cuantitativas de Economía y Empresa. Las clases las imparte una graduada en Finanzas y Contabilidad, con el objetivo de que se entienda la lógica de cada materia y no solo se memoricen fórmulas.</p>
+        <p>Cada sesión se hace por videollamada, con explicaciones claras y pizarra digital en directo.</p>
+      </div>
+      <ul class="facts">
+        <li><b>Clases individuales</b><span>Toda la atención en tus dudas.</span></li>
+        <li><b>A tu medida</b><span>Adaptadas a tu grado y a la fecha de tu examen.</span></li>
+        <li><b>100% online</b><span>Por videollamada, sin desplazamientos.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="opiniones" style="padding-top:0" hidden>
+    <div class="wrap">
+      <h2 class="t">Opiniones de alumnos</h2>
+      <div class="grid" id="reviews"></div>
+      <p class="more" id="more"></p>
+    </div>
+  </section>
+
+  <section id="faq" style="padding-top:0">
+    <div class="wrap">
+      <h2 class="t">Preguntas frecuentes</h2>
+      <details><summary>¿Puedo empezar con una sola clase?</summary><p>Sí. Puedes probar una clase y decidir después si quieres continuar.</p></details>
+      <details><summary>¿Qué necesito para la primera clase?</summary><p>Tus apuntes, los ejercicios que más te cuesten y, si los tienes, exámenes de otros años. Solo hace falta un dispositivo con conexión a internet.</p></details>
+      <details><summary>¿Cómo se reserva?</summary><p>Elige asignatura y fecha de examen en el formulario y envía el mensaje por WhatsApp o email. Recibirás los horarios disponibles.</p></details>
+    </div>
+  </section>
+</main>
+
+<div class="cta">
+  <h2>Empieza cuanto antes y gana tiempo de práctica.</h2>
+  <p>Indica tu asignatura y la fecha de tu examen y te proponemos un plan de clases.</p>
+  <a class="btn" href="#reserva">Reservar primera clase</a>
+</div>
+
+<dialog id="dlg-aviso-legal" class="legal" aria-label="Aviso legal">
+<button type="button" class="close" data-close>Cerrar ✕</button>
+<section id="aviso-legal">
+    <h2>Aviso legal</h2>
+    <p>En cumplimiento del artículo 10 de la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de los datos del titular de este sitio web:</p>
+    <ul>
+      <li><b>Titular:</b> Blanca del Carmen Barranco Barranco</li>
+      <li><b>Correo electrónico:</b> aulabb.formacion@gmail.com</li>
+      <li><b>Actividad:</b> servicios de formación y clases particulares online, bajo la marca Aula BB.</li>
+    </ul>
+    <h3>Condiciones de uso</h3>
+    <p>El acceso y uso de esta web atribuye la condición de usuario e implica la aceptación de este aviso legal. El usuario se compromete a hacer un uso adecuado de los contenidos y a no emplearlos para actividades ilícitas.</p>
+    <h3>Propiedad intelectual</h3>
+    <p>Los textos, el diseño y demás contenidos de esta web son propiedad del titular o se usan con autorización. Queda prohibida su reproducción, distribución o transformación sin consentimiento previo.</p>
+    <h3>Responsabilidad</h3>
+    <p>La información de la web tiene carácter informativo. Las clases tienen como finalidad apoyar el estudio del alumno, pero no se garantiza la superación de ningún examen o asignatura, que depende del trabajo personal y de factores ajenos al titular. El titular no se responsabiliza de los contenidos de webs de terceros enlazadas desde este sitio.</p>
+    <h3>Legislación aplicable</h3>
+    <p>Este aviso legal se rige por la legislación española. Para cualquier controversia, las partes se someterán a los juzgados y tribunales que correspondan conforme a la normativa vigente.</p>
+  </section>
+</dialog>
+
+<dialog id="dlg-privacidad" class="legal" aria-label="Política de privacidad">
+<button type="button" class="close" data-close>Cerrar ✕</button>
+<section id="privacidad">
+    <h2>Política de privacidad</h2>
+    <h3>Responsable del tratamiento</h3>
+    <p>Blanca del Carmen Barranco Barranco, correo electrónico aulabb.formacion@gmail.com.</p>
+    <h3>Qué datos tratamos y para qué</h3>
+    <p>Los datos que nos facilitas al escribirnos por WhatsApp o por correo electrónico (por ejemplo, tu nombre, teléfono o email, la asignatura que necesitas y la fecha de tu examen). Los usamos para responder a tu consulta, proponerte un horario y, si contratas las clases, gestionar la prestación del servicio.</p>
+    <h3>Base jurídica</h3>
+    <p>Tu consentimiento, que se manifiesta al enviarnos el mensaje (art. 6.1.a RGPD), y la aplicación de medidas precontractuales o la ejecución del contrato de las clases (art. 6.1.b RGPD).</p>
+    <h3>Conservación</h3>
+    <p>Conservamos los datos mientras dure la consulta o la relación con el alumno y, después, durante los plazos legales aplicables (por ejemplo, obligaciones fiscales y contables).</p>
+    <h3>Destinatarios</h3>
+    <p>No cedemos tus datos a terceros salvo obligación legal. Para comunicarnos contigo utilizamos servicios como WhatsApp (Meta) y el correo de Google, y este sitio está alojado en un proveedor de hosting. Estos proveedores pueden tratar datos como encargados del tratamiento y, en su caso, realizar transferencias internacionales amparadas en garantías adecuadas.</p>
+    <h3>Tus derechos</h3>
+    <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad escribiendo a aulabb.formacion@gmail.com. Si consideras que no hemos tratado tus datos correctamente, puedes presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es).</p>
+    <h3>Destinatarios de la web</h3>
+    <p>Este sitio se dirige a personas mayores de edad.</p>
+  </section>
+</dialog>
+
+<dialog id="dlg-cookies" class="legal" aria-label="Política de cookies">
+<button type="button" class="close" data-close>Cerrar ✕</button>
+<section id="cookies">
+    <h2>Política de cookies</h2>
+    <p>Esta web no utiliza cookies propias ni de terceros, ni herramientas de analítica o publicidad. Si en el futuro se incorporan, se informará aquí y se solicitará tu consentimiento cuando sea necesario.</p>
+  </section>
+</dialog>
+
+<footer>
+  <span>© Aula BB · Academia online para universitarios · <a href="#aviso-legal" data-dlg="aviso-legal" style="margin-left:0">Aviso legal</a><a href="#privacidad" data-dlg="privacidad">Privacidad</a><a href="#cookies" data-dlg="cookies">Cookies</a></span>
+  <span><a href="https://www.instagram.com/aulabb.contabilidad" rel="noopener">Instagram</a><a href="mailto:aulabb.formacion@gmail.com">Email</a></span>
+</footer>
+
+<div class="sticky"><a class="btn" href="#reserva">Reservar primera clase</a></div>
+
+<script>
+var WHATSAPP = "34695308720";
+var EMAIL = "aulabb.formacion@gmail.com";
+// Reseñas reales: { text:"…", who:"Nombre, grado", source:"SuperProf" }. Si está vacío, la sección no se muestra.
+var REVIEWS = [];
+// Enlaces a tus perfiles: { label:"Ver opiniones en SuperProf", url:"https://…" }
+var PROFILES = [];
+var subj = document.getElementById("subjects"), when = document.getElementById("when");
+var preview = document.getElementById("preview");
+var chosenWhen = "";
+
+function selected(){
+  return Array.prototype.filter.call(subj.children, function(b){return b.getAttribute("aria-pressed")==="true"})
+    .map(function(b){return b.textContent});
+}
+function message(){
+  var s = selected();
+  var t = "Hola, soy universitario/a y necesito clases";
+  t += s.length ? " de " + s.join(", ").replace(/, ([^,]*)$/, " y $1") : " particulares";
+  t += chosenWhen ? ". Mi examen es " + chosenWhen : "";
+  return t + ". ¿Qué horarios tienes disponibles?";
+}
+function refresh(){
+  var m = message();
+  preview.textContent = m;
+  document.getElementById("send").href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(m);
+  document.getElementById("mail").href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Clases online en Aula BB") + "&body=" + encodeURIComponent(m);
+}
+subj.addEventListener("click", function(e){
+  var b = e.target.closest(".chip"); if(!b) return;
+  b.setAttribute("aria-pressed", b.getAttribute("aria-pressed")==="true" ? "false" : "true");
+  refresh();
+});
+when.addEventListener("click", function(e){
+  var b = e.target.closest(".chip"); if(!b) return;
+  var on = b.getAttribute("aria-pressed")==="true";
+  Array.prototype.forEach.call(when.children, function(c){c.setAttribute("aria-pressed","false")});
+  chosenWhen = on ? "" : b.getAttribute("data-v");
+  if(!on) b.setAttribute("aria-pressed","true");
+  refresh();
+});
+(function(){
+  if(!REVIEWS.length && !PROFILES.length) return;
+  var box = document.getElementById("reviews");
+  REVIEWS.forEach(function(r){
+    var f = document.createElement("figure"); f.className = "card quote";
+    var p = document.createElement("p"); p.textContent = "“" + r.text + "”";
+    var c = document.createElement("cite"); c.textContent = r.who + (r.source ? " · " + r.source : "");
+    f.appendChild(p); f.appendChild(c); box.appendChild(f);
+  });
+  var more = document.getElementById("more");
+  PROFILES.forEach(function(x){
+    var a = document.createElement("a"); a.href = x.url; a.target = "_blank"; a.rel = "noopener"; a.textContent = x.label; more.appendChild(a);
+  });
+  document.getElementById("opiniones").hidden = false;
+})();
+(function(){
+  function open(id){ var d = document.getElementById("dlg-" + id); if(d && !d.open) d.showModal(); }
+  document.addEventListener("click", function(e){
+    var a = e.target.closest("a[data-dlg]");
+    if(a){ e.preventDefault(); open(a.getAttribute("data-dlg")); return; }
+    var c = e.target.closest("[data-close]");
+    if(c){ c.closest("dialog").close(); return; }
+    if(e.target.tagName === "DIALOG") e.target.close();
+  });
+  var h = location.hash.replace("#","");
+  if(h === "aviso-legal" || h === "privacidad" || h === "cookies") open(h);
+})();
+refresh();
+</script>
+</body>
+</html>
